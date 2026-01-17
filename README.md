@@ -1,4 +1,4 @@
-# AI Transliteration Backend
+# Fast-Translit Backend
 
 ![Alt text](Static/sample.png)
 
@@ -23,7 +23,7 @@ The system is designed to be simple, deterministic, and production-aligned, with
 ## Project Structure
 
 ```
-AI-Transliteration/
+Fast-Translit/
 ├── Backend/
 │   ├── main.py          # FastAPI app entry point
 │   ├── db.py            # Database engine & session management
