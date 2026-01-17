@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, DateTime
-from db import Base
+from Backend.db import Base
 from datetime import datetime
 
 class UserSubmission(Base):
