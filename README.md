@@ -1,6 +1,6 @@
 # AI Transliteration Backend
 
-![Alt text](AI-Transliteration/Static/sample.png)
+![Alt text](Static/sample.png)
 
 
 This project is a **FastAPI-based backend service** that accepts user input (name and address), transliterates the text using **AI4Bharat’s Indic Transliteration Engine**, and stores the processed data in a **PostgreSQL database** using **SQLAlchemy ORM**.
@@ -49,7 +49,7 @@ AI-Transliteration/
 * Beam search is enabled for better transliteration quality
 
 
-![Alt text](AI-Transliteration/Static/output.png)
+![Alt text](Static/output.png)
 
 Example:
 
