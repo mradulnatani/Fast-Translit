@@ -28,3 +28,4 @@ def submit_form(form: UserForm, db: Session = Depends(get_db)):
         address_trans=submission.address
     )
 
+
