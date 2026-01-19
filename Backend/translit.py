@@ -13,6 +13,8 @@ def transliterate_text(text: str, lang_code: str = "hi") -> str:
     result = _engine.translit_sentence(
         text,
         lang_code=lang_code
+       # topk=1,
+       # beam_width=10
     )
 
     return result

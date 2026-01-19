@@ -1,3 +1,4 @@
+"""""
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Boolean, JSON
 from sqlalchemy.orm import relationship
 from Backend.db import Base
@@ -39,4 +40,17 @@ class Token(Base):
     is_revoked = Column(Boolean, default=False)
 
     client = relationship("Client", back_populates="tokens")
+"""""
+
+from sqlalchemy import Column, Integer, String, DateTime
+from Backend.db import Base
+from datetime import datetime
+
+class UserSubmission(Base):
+    __tablename__ = "user_submissions"
+
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, nullable=False)
+    address = Column(String, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow)
 
