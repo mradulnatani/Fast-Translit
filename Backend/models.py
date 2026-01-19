@@ -41,6 +41,7 @@ class Token(Base):
 
     client = relationship("Client", back_populates="tokens")
 """""
+
 from sqlalchemy import Column, Integer, String, DateTime
 from Backend.db import Base
 from datetime import datetime
@@ -52,3 +53,4 @@ class UserSubmission(Base):
     name = Column(String, nullable=False)
     address = Column(String, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
+
