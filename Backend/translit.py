@@ -19,3 +19,12 @@ def transliterate_text(text: str, lang_code: str = "hi") -> str:
 
     return result
 
+def transliterate_payload(payload: dict, fields: list, normalize: bool):
+    result = payload.copy()
+
+    for field in fields:
+        if field in result and isinstance(result[field], str):
+            result[field] = transliterate_text(result[field])
+
+    return result
+

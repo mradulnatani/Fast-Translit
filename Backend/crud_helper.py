@@ -1,19 +1,20 @@
-from sqlalchemy.orm import Session
-from Backend.models import UserSubmission
-from Backend.translit import transliterate_text
+from Backend.models import RequestLog
 
-def create_submission(db: Session, name: str, address: str):
-    name_trans = transliterate_text(name)
-    address_trans = transliterate_text(address)
-
-    submission = UserSubmission(
-        name=name_trans,
-        address=address_trans
+def log_request(
+    db,
+    company_id,
+    api_endpoint_id,
+    input_payload,
+    output_payload,
+    status_code,
+):
+    log = RequestLog(
+        company_id=company_id,
+        api_endpoint_id=api_endpoint_id,
+        input_payload=input_payload,
+        output_payload=output_payload,
+        status_code=status_code,
     )
-
-    db.add(submission)
+    db.add(log)
     db.commit()
-    db.refresh(submission)
-
-    return submission
 
