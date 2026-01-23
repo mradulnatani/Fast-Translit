@@ -1,11 +1,17 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 
-class UserForm(BaseModel):
+
+class CompanyCreate(BaseModel):
     name: str
-    address: str
+    email: EmailStr
+    secret: str
 
 
-class SubmissionResponse(BaseModel):
+class CompanyResponse(BaseModel):
     id: int
-    name_trans: str
-    address_trans: str
+    name: str
+    email: EmailStr
+
+    class Config:
+        from_attributes = True
+

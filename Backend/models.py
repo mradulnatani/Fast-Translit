@@ -1,18 +1,4 @@
-""""
-from sqlalchemy import Column, Integer, String, DateTime
-from Backend.db import Base
-from datetime import datetime
-
-class UserSubmission(Base):
-    __tablename__ = "user_submissions"
-
-    id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, nullable=False)
-    address = Column(String, nullable=False)
-    created_at = Column(DateTime, default=datetime.utcnow)
-"""""
-
-from sqlalchemy import Column,Integer,String,Boolean,DateTime,ForeignKey,JSON,Text)
+from sqlalchemy import Column,Integer,String,Boolean,DateTime,ForeignKey,JSON,Text
 from sqlalchemy.orm import relationship
 from datetime import datetime
 from Backend.db import Base
@@ -67,4 +53,21 @@ class JWTToken(Base):
     created_at = Column(DateTime, default=datetime.utcnow)
 
     company = relationship("Company", back_populates="jwt_tokens")
+
+
+class RequestLog(Base):
+    __tablename__ = "request_logs"
+
+    id = Column(Integer, primary_key=True)
+    company_id = Column(Integer, ForeignKey("companies.id", ondelete="CASCADE"))
+    api_endpoint_id = Column(Integer, ForeignKey("api_endpoints.id", ondelete="CASCADE"))
+
+    input_payload = Column(JSON, nullable=False)
+    output_payload = Column(JSON, nullable=False)
+    status_code = Column(Integer)
+
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    company = relationship("Company", back_populates="request_logs")
+    api_endpoint = relationship("APIEndpoint", back_populates="request_logs")
 
