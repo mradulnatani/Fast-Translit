@@ -17,4 +17,3 @@ def log_request(
     )
     db.add(log)
     db.commit()
-
