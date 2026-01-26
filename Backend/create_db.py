@@ -1,4 +1,5 @@
-from Backend.db import Base, engine
-from Backend.models import UserSubmission
+from db import Base, engine
+from models import UserSubmission
 
 Base.metadata.create_all(bind=engine)
+

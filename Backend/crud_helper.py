@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from Backend.models import UserSubmission
-from Backend.translit import transliterate_text
+from .models import UserSubmission
+from .translit import transliterate_text
 
 def create_submission(db: Session, name: str, address: str):
     name_trans = transliterate_text(name)
