@@ -1,11 +1,26 @@
 from pydantic import BaseModel
 
 class UserForm(BaseModel):
-    name: str
-    address: str
+    pin_code: int
+    state: str
+    city: str
+    locality: str
+    landmark: str
 
 
 class SubmissionResponse(BaseModel):
     id: int
-    name_trans: str
-    address_trans: str
+    state_trans: str
+    city_trans: str
+    locality_trans: str
+    landmark_trans: str
+
+
+class NormalizedResponse(BaseModel):
+    id: int
+    state_normalized: str
+    city_normalized: str
+    locality_normalized: str
+    landmark_normalized: str
+    pin_code: int
+

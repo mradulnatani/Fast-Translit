@@ -16,15 +16,13 @@ def get_db():
 
 @app.post("/submit", response_model=SubmissionResponse)
 def submit_form(form: UserForm, db: Session = Depends(get_db)):
-    submission = create_submission(db, form.name, form.address)
-
-    send_notification(
-        f"New submission: {submission.name}, {submission.address}"
-    )
+    submission = create_submission(db,form.pin_code, form.state, form.city, form.locality, form.landmark)
 
     return SubmissionResponse(
         id=submission.id,
-        name_trans=submission.name,
-        address_trans=submission.address
+        state_trans=submission.state,
+        city_trans=submission.city,
+        landmark_trans=submission.landmark,
+        locality_trans=submission.locality
     )
 
