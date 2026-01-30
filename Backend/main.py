@@ -3,7 +3,6 @@ from sqlalchemy.orm import Session
 from Backend.db import SessionLocal
 from Backend.schemas import UserForm, SubmissionResponse
 from Backend.crud_helper import create_submission
-from Backend.rabbitmq import send_notification
 
 app = FastAPI()
 
