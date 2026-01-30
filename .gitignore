@@ -214,3 +214,21 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+.osm
+.osm.pbf
+.osrm
+.osrm.
+# OSM Data files
+*.osm
+*.pbf
+*.opl
+
+# OSRM Graph/Binary files
+*.osrm
+*.osrm.*
+
+# Potential temporary or lock files from OSRM processing
+stxxl.errlog
+stxxl.log
+.osrm.lock
