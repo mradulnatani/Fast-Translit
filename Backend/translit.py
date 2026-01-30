@@ -18,4 +18,3 @@ def transliterate_text(text: str, lang_code: str = "hi") -> str:
     )
 
     return result
-

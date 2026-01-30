@@ -25,4 +25,3 @@ def submit_form(form: UserForm, db: Session = Depends(get_db)):
         landmark_trans=submission.landmark,
         locality_trans=submission.locality
     )
-

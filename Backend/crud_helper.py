@@ -62,7 +62,7 @@ def create_submission(db: Session, pin_code: int, state: str, city: str, localit
     db.flush()
 
     handler = OSMDataHandler(pin_code, city_trans)
-    handler.apply_file("/home/mradul/Desktop/Ekadyu/AI-Transliteration/osm-data/ujjain_filtered.osm.pbf") 
+    handler.apply_file("ujjain_filtered.osm.pbf") 
 
     final_city = handler.osm_city_found if handler.osm_city_found else city_trans.title()
     final_locality = get_best_match(locality_trans, handler.possible_matches)
@@ -81,4 +81,3 @@ def create_submission(db: Session, pin_code: int, state: str, city: str, localit
     db.refresh(submission)
 
     return submission
-
